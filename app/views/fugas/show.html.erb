@@ -13,3 +13,5 @@
 <%= link_to 'Edit', edit_fuga_path(@fuga) %> |
 <%= link_to 'Back', fugas_path %>|
 <%= link_to 'Textで出力', fuga_path(@fuga,:format=>:txt) %>|
+<%= link_to 'doc出力', fuga_path(@fuga,:format=>:docx) %>|
+<%= link_to 'pdf出力', fuga_path(@fuga,:format=>:pdf) %>

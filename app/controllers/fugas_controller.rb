@@ -8,8 +8,8 @@ class FugasController < ApplicationController
     respond_to do |format|
         format.html
         format.json { render json: @fugas }
-       format.txt{send_data Fuga.txt(@fugas),type: 'text/txt;charset=shift_jis',filename:"fuga.txt"}
-      format.docx{send_data Fuga.docx(@fugas),type: 'application/docx;charset=shift_jis',filename:"tameshi.docx"}
+       format.txt{send_data Fuga.txt(@fugas),type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',filename:"fuga.txt"}
+
 end
 
   end
@@ -21,6 +21,10 @@ end
         format.html
         format.json { render json: @fuga }
        format.txt{send_data Fuga.txt(@fuga),type: 'text/txt;charset=shift_jis',filename:"fuga.txt"}
+             format.docx{send_data Fuga.docx(@fuga),type: 'application/docx',filename:"otameshi.docx"}
+             format.pdf do
+                     render :pdf => "report", :layout => 'pdf.html.erb',:encoding => 'UTF-8'
+                   end
    end
   end
 
